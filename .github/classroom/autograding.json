@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Person.java",
+      "setup": "",
+      "run": "javac Person.java && java Person",
+      "input": "",
+      "output": "Person 1:Jhon Doe\r\nPerson 2:Alice Smith\r\nAverage Age:27.5",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
