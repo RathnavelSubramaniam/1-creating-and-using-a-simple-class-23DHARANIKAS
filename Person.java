@@ -1,52 +1,50 @@
-import java.util.Stack;
-
-class Stack1 {
-    int stck[];
-    int top;
-
-    Stack1(int s) {
-        stck = new int[s];
-        top = -1;
+class Product {
+    int productId;String productName;double price;
+    // Define instance variables: productId (int), productName (String), price
+    // (double)
+    static int count;
+    Product(){
+       productName=null;
     }
-
-    void push(int item) {
-        if (top > stck.length - 1) {
-            System.out.println("Stack is full");
-        } else {
-            stck[++top] = item;
+    Product(int productId,String productName,double price){
+        this.productId=productId;
+        this.productName=productName;
+        this.price =price;
+        count++;
+    }
+     
+    // Static variable for product count
+    // Constructor to initialize product attributes
+        double discount(double Price,double Discount){
+            return ((100-Discount)/100)*Price;
         }
-    }
-
-    int pop() {
-        if (top < 0) {
-            System.out.println("Stack is empty!");
-            return -1; // Or choose an appropriate return value
-        } else {
-            return stck[top--];
-        }
-    }
-
-    int peek() {
-        if (top < 0) {
-            System.out.println("Stack is empty!");
-            return -1; // Or choose an appropriate return value
-        } else {
-            return stck[top];
-        }
-    }
+    // Calculate and return the discounted price
+    void displayProductInfo(){
+        System.out.println("Product Id : "+productId);
+        System.out.println("Product Name : "+productName);
+        System.out.println("Product Price : "+price);
+    // Display product information
+    // Static method to retrieve total product count
 }
 
-public class Practical3 {
+    }
+    
+public class Practical2 {
     public static void main(String[] args) {
-        Stack1 s1 = new Stack1(4);
-        for (int i = 1; i <= 4; i++)
-            s1.push(i * 5);
+        Product product1=new Product(101,"Laptop",999.99);
+        Product product2=new Product(202,"Smart Phone",499.95);
+        Product product3=new Product(303,"Tablet",299.50);
+        Product calcDiscount=new Product();       
+         // Create three Product objects with different data
+        product1.displayProductInfo();
+        product2.displayProductInfo();
+        product3.displayProductInfo();
+        // Display product information
+        double DiscountedPrice=calcDiscount.discount(product1.price,10);
+        System.out.println("Discounted Price : "+DiscountedPrice);
+        System.out.println(Product.count);
+        // Calculate and display discounted price
 
-        System.out.println("Stack Contents:");
-        for (int i = 0; i < 4; i++)
-            System.out.println(s1.pop());
-
-        System.out.println("Top element: "+s1.peek());
-        
+        // Display total product count
     }
 }
